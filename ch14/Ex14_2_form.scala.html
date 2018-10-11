@@ -1,0 +1,18 @@
+@* 코드 14-2 views/form.scala.html *@
+
+@(joinForm : Form[Member])(implicit message: Messages)
+@import helpoer._
+
+@helper.form(action = routes.HomeController.save()) {
+
+  @inputText(joinForm("mid", '_label -> "회원번호")
+  @inputText(joinForm("userid", '_label -> "회원아이디")
+  @inputPassword(joinForm("password"), '_label -> "비밀번호")
+  @inputText(joinForm("nickname"), '_label -> "닉네임")
+  @inputText(joinForm("email"), '_label -> "이메일")
+  @inputText(joinForm("regdate"), '_label -> "등록일자")
+
+  <div class="actions">
+    <input type="submit" value="join!" class="">
+  </div>
+}

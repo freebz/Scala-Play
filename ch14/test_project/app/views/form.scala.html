@@ -1,0 +1,24 @@
+@(joinForm : Form[Member])(implicit message: Messages)
+@import helper._
+
+@helper.form(action = routes.HomeController.save()) {
+
+  @inputText(joinForm("mid"), '_label -> "회원번호")
+  @inputText(joinForm("userid"), '_label -> "회원아이디")
+  @inputPassword(joinForm("password"), '_label -> "비밀번호")
+  @inputText(joinForm("nickname"), '_label -> "닉네임")
+  @inputText(joinForm("email"), '_label -> "이메일")
+  @inputDate(joinForm("regdate"), '_label -> "등록일자")
+
+  <div class="actions">
+    <input type="submit" value="join!" class="">
+  </div>
+}
+
+@helper.form(action = routes.HomeController.uploadFile,
+	     'enctype -> "multipart/form-data") {
+  <input type="file" name="picture">
+  <p>
+    <input type="submit">
+  </p>
+}
