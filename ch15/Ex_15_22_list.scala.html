@@ -1,0 +1,30 @@
+@* 코드 15-22 views/list.scala.html *@
+
+@main {
+  <div id="pagination" class="pagenation">
+    <ul>
+      @currentPage.prev.map { page =>
+        <li class="prev">
+	  <a href="@link(page">&larr; Previous</a>
+	</li>
+      }.getOrElse {
+	<li class="prev disabled">
+	  <a>&larr; Previous</a>
+	</li>
+      }
+      <li class="current">
+	<a>Displaying @(currentPage.offset + 1) to
+	  @(currentPage.offset +computers.size) of @currentPage.total</a>
+      </li>
+      @currentPage.next.map { page =>
+        <li class="next">
+	  <a href="@link(page">Next &rarr;</a>
+	</li>
+      }.getOrElse {
+	<li class="next disabled">
+	  <a>Next &rarr;</a>
+	</li>
+      }
+    </ul>
+  </div>
+}

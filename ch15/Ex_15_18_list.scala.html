@@ -1,0 +1,14 @@
+@* 코드 15-18 views/list.scala.html *@
+
+@link(newPage: Int, newOrderBy: Option[Int] = None) = @{
+  routes.Application.list(newPage, newOrderBy.map { orderBy =>
+    if(orderBy == scala.math.abs(currentOrderBy)) -currentOrderBy else orderBy
+  }.getOrElse(currentOrderBy), currentFilter)
+}
+
+@header(orderBy: Int, title: String) = {
+  <th class="col@orderBy header @if(scala.math.abs(currentOrderBy) == orderBy)
+	     @{if(currentOrderBy < 0) "headerSortDown" else "headerSortUp"}">
+    <a href="@link(0, Some(orderBy))">@title</a>
+  </th>
+}

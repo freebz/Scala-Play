@@ -1,0 +1,45 @@
+@* 코드 15-21 views/list.scala.html *@
+
+@main {
+
+  @Option(currentPage.items).filterNot(_.isEmpty).map { computers =>
+
+    <table class="computers zebra-striped">
+      <thead>
+	<tr>
+	  @header(2, "Computer name")
+	  @header(3, "Introduced")
+	  @header(4, "Discontinued")
+	  @header(5, "Company")
+	</tr>
+      </thead>
+      <tbody>
+
+	@computers.map {
+	  case (computer, company) => {
+	    <tr>
+	      <td>
+		<a href="@routes.Application.edit(computer.id.get)">@computer.name</a>
+	      </td>
+	      <td>
+		@computer.introduced.map(_.format(
+		  "dd MMM yyyy")).getOrElse { <em>-</em> }
+	      </td>
+	      <td>
+		@computer.discontined.map(_.format(
+		  "dd MMM yyyy")).getOrElse { <em>-</em> }
+	      </td>
+	      <td>
+		@company.map(_.name).getOrElse { <em>-</em> }
+	      </td>
+	    </tr>
+	  }
+	}
+      </tbody>
+    </table>
+  }.getOrElse {
+
+    <div class="well">
+      <em>Nothing to display</em>
+    </div>
+  }
