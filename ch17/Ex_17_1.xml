@@ -1,0 +1,20 @@
+<!-- 코드 17-1 XML 코드 -->
+
+<?xml version="1.0"?>
+<catalog>
+  <book id="book01">
+    <author>고순자</author>
+    <title>XML 실전 가이드</title>
+    <genre>컴퓨터</genre>
+    <price>39000</price>
+    <description>xml에대해서 자세히 알 수 있는 책입니다.</description>
+  </book>
+  <book id="book02">
+    <author>김말자</author>
+    <title>101개의 초콜릿</title>
+    <genre>판타지</genre>
+    <price>43000</price>
+    <description>초콜릿 101개가 서로 주인의 사랑을 독차지하기 위해
+    피 터지게 싸우는 내용입니다. 우수문학상, 베스트 셀러</description>
+  </book>
+</catalog>
