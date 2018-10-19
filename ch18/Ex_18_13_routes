@@ -1,0 +1,4 @@
+# 코드 18-13 conf/routes
+
+GET    /chatstart		controllers.HomeController.chatStart
+GET    /chat	     		controllers.HomeController.chat

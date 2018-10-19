@@ -1,0 +1,13 @@
+@* 코드 18-3 클라이언트에서 웹 소켓을 이용해 메시지 송수신 *@
+
+@(implicit request: RequestHeader)
+
+<script>
+  var socket = new WebSocket("@routes.HomeController.chat.webSocketURL()")
+  socket.onopen = function(e){
+    console.log("연결")
+  }
+  socket.onmessage = function(e){
+    console.log("서버로부터 데이터 받음! : " + e.data)
+  }
+</script>
