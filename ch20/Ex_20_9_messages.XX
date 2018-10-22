@@ -1,0 +1,3 @@
+# 코드 20-9 conf/messages.XX
+
+message = You have {0,choice,0#NO friends!!|1#1 friend|1<have {0,number,integer} friends}.
