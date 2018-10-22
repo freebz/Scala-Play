@@ -1,0 +1,24 @@
+// 코드 21-2 함수 형식으로 구성한 LESS
+
+/**예제 1, 매개변수가 없으면 자동으로 10px로 설정됩니다.**/
+.rounded-corners (@radius: 10px) {
+    border-radius: @radius;
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+}
+
+/**매개변수가 없어 기본값으로 설정됩니다.**/
+.content_wrapper {
+    .rounded-corners;
+}
+
+/**매개변수가 있는 경우**/
+#navigation {
+    .rounded-corners(10px);
+}
+
+/**예제 2, 일부는 고정값, 일부는 변수로 설정할 수 있습니다.**/
+.set_color(@myColor: #111111) {
+    border : 1px;
+    color : @myColor;
+}
